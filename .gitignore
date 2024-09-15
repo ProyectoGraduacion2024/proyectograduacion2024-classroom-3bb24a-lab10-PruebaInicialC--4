@@ -1,0 +1,47 @@
+# Ignorar las carpetas .vs y x64 dentro de src
+src/**/.vs/
+src/**/x64/
+
+# Archivos binarios y objetos compilados
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+*.out
+*.class
+
+# Archivos temporales
+*.tmp
+*.log
+*.temp
+*.pid
+*.seed
+*.pid.lock
+
+# Ignorar directorios de build
+build/
+dist/
+[Bb]in/
+[Oo]bj/
+
+# Archivos de Visual Studio
+*.user
+*.suo
+*.sln
+*.VC.db
+*.VC.VC.opendb
+*.vcxproj
+*.vcxproj.filters
+
+# Ignorar archivos de configuración del entorno de desarrollo
+.vscode/
+.idea/
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+

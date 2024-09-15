@@ -1,0 +1,41 @@
+name: Run Scripts Without pip
+
+on:
+  push:
+    paths:
+      - 'scripts/**'
+      - 'src/**'
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'src/**'
+  workflow_dispatch:
+
+jobs:
+  run_scripts:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.12.5
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.5'
+    
+    - name: Run scripts
+      run: |
+        cd scripts
+        python analyze_libraries.py
+        python analyze_structure.py
+        python analyze_identation.py
+     
+      shell: bash
+    
+    - name: Upload output as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: script-output
+        path: output/
+    
+    - name: Always succeed
+      run: exit 0
